@@ -1,0 +1,304 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>complete responsive real estate website design tutorial</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/stays.css' %}">
+
+</head>
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+
+    <a href="{% url 'home' %}"class="logo"> <i class="fas fa-hiking"></i> travel </a>
+
+    <nav class="navbar">
+        <a href="{% url 'home' %}">Գլխավոր</a>
+        <a href="{% url 'about' %}">Մեր մասին</a>
+        <a href="{% url 'stays'%}">Հյուրանոցներ</a>
+        <a href="{% url 'flights' %}">Թռիչքներ</a>
+        <a href="{% url 'blog' %}">Բլոգ</a>
+    </nav>
+
+    <div class="icons">
+        <div id="menu-bars" class="fas fa-bars"></div>
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+
+<section class="home" id="home">
+
+    <form action="">
+
+        <h3>find your perfect home</h3>
+
+        <div class="buttons-container">
+            <a href="#" class="btn">for rent</a>
+            <a href="#" class="btn">for sell</a>
+        </div>
+
+        <div class="inputBox">
+            <input type="search" name="" placeholder="neighborhood" id="">
+            <input type="search" name="" placeholder="city" id="">
+            <select name="" id="">
+                {% for i in staysmin %}
+                <option value="" disabled hidden selected>minimum price</option>
+                <option value="$5000">$ {{i.name}}</option>
+                <option value="$10000">$ {{i.name2}}</option>
+                <option value="$15000">$ {{i.name3}}</option>
+                <option value="$20000">$ {{i.name4}}</option>
+                <option value="$25000">$ {{i.name5}}</option>
+                {% endfor %}
+            </select>
+            <select name="" id="">
+                {% for i in staysmax %}
+                <option value="" disabled hidden selected>maximum price</option>
+                <option value="$30000">{{i.name}}</option>
+                <option value="$35000">{{i.name2}}</option>
+                <option value="$40000">{{i.name3}}</option>
+                <option value="$45000">{{i.name4}}</option>
+                <option value="$50000">{{i.name5}}</option>
+                {% endfor %}
+            </select>
+            <select name="" id="">
+                {%for i in propertyst%}
+                <option value="" disabled hidden selected>property status</option>
+                <option value="Ready To Move">{{i.name}}</option>
+                <option value="under construction">{{i.name2}}</option>
+                <option value="furnished">{{i.name3}}</option>
+                <option value="semi-furnished">{{i.name4}}</option>
+                <option value="unfurnished">{{i.name5}}</option>
+                {%endfor%}
+            </select>
+            <select name="" id="">
+                {% for i in propertytyp%}
+                <option value="" disabled hidden selected>property type</option>
+                <option value="flat">f{{i.name}}</option>
+                <option value="house">{{i.name2}}</option>
+                <option value="shop">{{i.name3}}</option>
+                <option value="warehouse">{{i.name4}}</option>
+                <option value="land">{{i.name5}}</option>
+                {%endfor%}
+            </select>
+            <select name="" id="">
+                {%for i in bhk %}
+                <option value="" disabled hidden selected>BHK</option>
+                <option value="1 BHK">{{i.name}} BHK</option>
+                <option value="2 BHK">{{i.name2}} BHK</option>
+                <option value="3 BHK">{{i.name3}} BHK</option>
+                <option value="4 BHK">{{i.name4}} BHK</option>
+                <option value="5 BHK">{{i.name5}} BHK</option>
+                {%endfor%}
+            </select>
+            <select name="" id="">
+                {%for i in aminit%}
+                <option value="" disabled hidden selected>aminities</option>
+                <option value="parking space">{{i.name}}</option>
+                <option value="swimming pool">{{i.name2}}</option>
+                <option value="playground">{{i.name3}}</option>
+                <option value="security">{{i.name4}}</option>
+                <option value="all">{{i.name5}}</option>
+                {%endfor%}
+            </select>
+            <select name="" id="">
+                {%for i in bedroom%}
+                <option value="" disabled hidden selected>bedrooms</option>
+                <option value="1 bedroom">{{i.name}} bedroom</option>
+                <option value="2 bedroom">{{i.name2}} bedroom</option>
+                <option value="3 bedroom">{{i.name3}} bedroom</option>
+                <option value="4 bedroom">{{i.name4}} bedroom</option>
+                <option value="5 bedroom">{{i.name5}} bedroom</option>
+                {%endfor%}
+            </select>
+            <select name="" id="">
+                {%for i in bathroom%}
+                <option value="" disabled hidden selected>bathrooms</option>
+                <option value="1 bathroom">{{i.name}} bathroom</option>
+                <option value="2 bathroom">{{i.name2}} bathroom</option>
+                <option value="3 bathroom">{{i.name3}} bathroom</option>
+                <option value="4 bathroom">{{i.name4}} bathroom</option>
+                <option value="5 bathroom">{{i.name5}} bathroom</option>
+                {%endfor%}
+            </select>
+        </div>
+
+        <input type="submit" value="search property" class="btn">
+
+    </form>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- services section starts  -->
+
+<section class="services" id="services">
+
+    <h1 class="heading"> our <span>services</span> </h1>
+
+    <div class="box-container">
+        {%for i in services%}
+        <div class="box">
+            <img src="{{i.img.url}}" alt="">
+            <h3>{{i.name}} </h3>
+            <p>{{i.text}}</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        {%endfor%}
+
+        
+
+    </div>
+
+</section>
+
+<!-- services section ends -->
+
+<!-- featured section starts  -->
+
+<section class="featured" id="featured">
+
+    <h1 class="heading"> <span>featured</span> properties </h1>
+
+    <div class="box-container">
+        {% for i in stayshotel%}
+        <div class="box">
+            <div class="image-container">
+                <img src="{{i.img.url}}" alt="">
+                <div class="info">
+                    <h3>3 days ago</h3>
+                    <h3>{{i.rennt}}</h3>
+                </div>
+                <div class="icons">
+                    <a href="#" class="fas fa-film"><h3>{{i.video}}</h3></a>
+                    <a href="#" class="fas fa-camera"><h3>{{i.photo}}</h3></a>
+                </div>
+            </div>
+            <div class="content">
+                <div class="price">
+                    <h3>${{i.pay}}</h3>
+                    <a href="#" class="fas fa-heart"></a>
+                    <a href="#" class="fas fa-envelope"></a>
+                    <a href="#" class="fas fa-phone"></a>
+                </div>
+                <div class="location">
+                    <h3>{{i.name}}</h3>
+                   
+                </div>
+                <div class="details">
+                    <h3> <i class="fas fa-expand"></i> {{i.sqft}} </h3>
+                    <h3> <i class="fas fa-bed"></i> {{i.beds}} </h3>
+                    <h3> <i class="fas fa-bath"></i> {{i.bats}} </h3>
+                </div>
+                <div class="buttons">
+                    <a href="#" class="btn">request info</a>
+                    <a href="#" class="btn">view details</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        
+
+    </div>
+    
+</section>
+
+<!-- featured section ends -->
+
+<!-- agents section starts  -->
+
+
+<!-- footer section ends -->
+
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="{% url 'home'%}">home</a>
+            <a href="{% url 'aboutus'%}">about</a>
+            <a href="#shop">shop</a>
+            <a href="#packages">packages</a>
+            <a href="#reviews">reviews</a>
+            <a href="{% url 'blog' %}">blogs</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my order</a>
+            <a href="#">my wishlist</a>
+            <a href="#">ask questions</a>
+            <a href="#">terms of use</a>
+            <a href="#">privacy policy</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +374-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +374-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> travelbooking@gmail.com </a>
+           
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            
+        </div>
+
+    </div>
+
+  
+
+</section>
+
+<!-- footer section ends -->
+
+
+
+<script src="static https://unpkg.com/swiper@7/swiper-bundle.min.js "></script>
+
+<!-- javascript part  -->
+<script>
+
+let menu = document.querySelector('#menu-bars');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+    navbar.classList.toggle('active');
+    menu.classList.toggle('fa-times');
+}
+
+window.onscroll = () =>{
+    navbar.classList.remove('active');
+    menu.classList.remove('fa-times');
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Responsive Landing Page Website Design</title>
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- navbar sections starts  -->
+    <header class="header">
+        <a href="{% url 'home' %}" class="logo"> <i class="fas fa-hiking"></i> travel </a>
+       
+           
+        </div>
+
+        <nav class="navbar">
+           
+        <a href="{% url 'home' %}">Գլխավոր</a>
+        <a href="{% url 'stays'%}">Հյուրանոցներ</a>
+        <a href="{% url 'flights' %}">Թռիչքներ</a>
+        <a href="{% url 'blog' %}">Բլոգ</a>
+        </nav>
+
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+    <!-- navbar sections starts  -->
+
+   
+    <!-- home section stars  -->
+    {% for i in abouts %}
+    <section class="home" id="home">
+        <div class="content">
+            <h1>{{ i.name1 }}</h1>
+            <p> {{ i.name2 }}</p>
+
+           
+        </div>
+
+
+        <div class="image">
+            <img src="{{ i.img.url }}" alt="illustration-hero">
+        </div>
+    </section>
+    {% endfor %}
+
+    <!-- home section ends -->
+
+    <!-- features sectin starts  -->
+
+   
+
+    <!-- footer section starts  -->
+    <section class="footer">
+
+        <div class="box-container">
+    
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="{% url 'home' %}">home</a>
+                <a href="{% url 'stays'">stays</a>
+                <a href="{% url 'flights'">flights</a>
+                <a href="#packages">packages</a>
+                <a href="#reviews">reviews</a>
+                <a href="{% url 'blog'%}">blogs</a>
+            </div>
+    
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#">my account</a>
+                <a href="#">my order</a>
+                <a href="#">my wishlist</a>
+                <a href="#">ask questions</a>
+                <a href="#">terms of use</a>
+                <a href="#">privacy policy</a>
+            </div>
+    
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +374-456-7890 </a>
+                <a href="#"> <i class="fas fa-phone"></i> +374-222-3333 </a>
+                <a href="#"> <i class="fas fa-envelope"></i> travelbooking@gmail.com </a>
+               
+            </div>
+    
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+                <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+                <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+                
+            </div>
+    
+        </div>
+    
+      
+    
+    </section>
+    
+
+    <!-- footer section ends -->
+
+
+    <script src="{% static 'js/about.js' %}"></script>
+</body>
+
+</html>

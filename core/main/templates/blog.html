@@ -1,0 +1,142 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> tour website design</title>
+    
+        <!-- font awesome cdn link  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    
+        <!-- custom css file link  -->
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    
+    </head> 
+
+<body>
+    <header class="header">
+        <a href="{% url 'home' %}" class="logo"> <i class="fas fa-hiking"></i> travel </a>
+       
+           
+        </div>
+
+        <nav class="navbar">
+           
+        <a href="{% url 'home' %}">Գլխավոր</a>
+        <a href="{% url 'about' %}">Մեր մասին</a>
+        <a href="{% url 'stays'%}">Հյուրանոցներ</a>
+        <a href="{% url 'flights' %}">Թռիչքներ</a>
+      
+        </nav>
+
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>  
+
+   
+<section class="home" id="home">
+
+    <div class="swiper home-slider">
+
+        <div class="swiper-wrapper">
+            {% for i in blogbg %}
+            <div class="swiper-slide">
+                <div class="box" style="background: url({{i.img.url}}) no-repeat;">
+                    <div class="content">
+                        <span>{{i.name}} </span>
+                        <h3>{{i.name2}}</h3>
+                     
+                        <a href="#" class="btn">get started</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}           
+        </div>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+    </div>
+    <!--blog section -->
+    
+    
+<section class="services" id="services">
+
+
+    <div class="boxx-container">
+        {% for i in hayvayr %}
+        <div class="boxx">
+            <img src="{{ i.img.url }}" alt="" width="100%" height="30%">
+            <h3>{{ i.name }}</h3>
+            <p>{{ i.about }}</p>
+            
+            
+
+
+            <a href="#" class="btn">Կարդալ ավելին</a>
+        </div>
+        {% endfor %} 
+
+    </div>
+
+</section>
+
+
+</section>
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="{% url 'home' }">home</a>
+            <a href="{% url 'stays'%}">stays</a>
+            <a href="{% url 'flights' %}">flights</a>
+            <a href="#packages">packages</a>
+            <a href="#reviews">reviews</a>
+            <a href="#{% url 'blog' %}">blogs</a>
+        </div>
+
+        <div class="box">
+            <h3>extra links</h3>
+            <a href="#">my account</a>
+            <a href="#">my order</a>
+            <a href="#">my wishlist</a>
+            <a href="#">ask questions</a>
+            <a href="#">terms of use</a>
+            <a href="#">privacy policy</a>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#"> <i class="fas fa-phone"></i> +374-456-7890 </a>
+            <a href="#"> <i class="fas fa-phone"></i> +374-222-3333 </a>
+            <a href="#"> <i class="fas fa-envelope"></i> travelbooking@gmail.com </a>
+           
+        </div>
+
+        <div class="box">
+            <h3>follow us</h3>
+            <a href="#"> <i class="fab fa-facebook-f"></i> facebook </a>
+            <a href="#"> <i class="fab fa-twitter"></i> twitter </a>
+            <a href="#"> <i class="fab fa-instagram"></i> instagram </a>
+            
+        </div>
+
+    </div>
+
+  
+
+</section>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    
+    <script src="{% static 'js/blog.js' %}"></script>
+</body>
+
+</html>
